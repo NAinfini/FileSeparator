@@ -96,5 +96,6 @@ namespace FileSeparator
                 leftFileCount = leftFileCount - Globals.fileCount;
             }
         }
+
     }
 }

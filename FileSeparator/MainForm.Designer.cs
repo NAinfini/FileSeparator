@@ -32,11 +32,15 @@
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            FileCountBox = new TextBox();
-            FIleCountLbl = new Label();
             ProcessBtn = new Button();
             FileProgressBar = new ProgressBar();
+            PreviewPicture = new PictureBox();
+            panel1 = new Panel();
+            FileCountBox = new TextBox();
+            FIleCountLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)FileListGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PreviewPicture).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // FileListGrid
@@ -44,15 +48,15 @@
             FileListGrid.AllowDrop = true;
             FileListGrid.AllowUserToAddRows = false;
             FileListGrid.AllowUserToDeleteRows = false;
-            FileListGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             FileListGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             FileListGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            FileListGrid.Location = new Point(12, 12);
+            FileListGrid.Dock = DockStyle.Left;
+            FileListGrid.Location = new Point(0, 0);
             FileListGrid.Name = "FileListGrid";
             FileListGrid.ReadOnly = true;
             FileListGrid.RowHeadersWidth = 72;
             FileListGrid.RowTemplate.Height = 37;
-            FileListGrid.Size = new Size(707, 552);
+            FileListGrid.Size = new Size(707, 585);
             FileListGrid.TabIndex = 0;
             FileListGrid.DragDrop += FileListGrid_DragDrop;
             FileListGrid.DragEnter += dataGridView1_DragEnter;
@@ -81,31 +85,10 @@
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             // 
-            // FileCountBox
-            // 
-            FileCountBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            FileCountBox.Location = new Point(896, 6);
-            FileCountBox.Name = "FileCountBox";
-            FileCountBox.Size = new Size(107, 35);
-            FileCountBox.TabIndex = 1;
-            FileCountBox.Text = "1000";
-            FileCountBox.TextAlign = HorizontalAlignment.Right;
-            FileCountBox.KeyPress += FileCountBox_KeyPress;
-            // 
-            // FIleCountLbl
-            // 
-            FIleCountLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            FIleCountLbl.AutoSize = true;
-            FIleCountLbl.Location = new Point(725, 9);
-            FIleCountLbl.Name = "FIleCountLbl";
-            FIleCountLbl.Size = new Size(165, 30);
-            FIleCountLbl.TabIndex = 2;
-            FIleCountLbl.Text = "Number of Files:";
-            // 
             // ProcessBtn
             // 
             ProcessBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ProcessBtn.Location = new Point(872, 533);
+            ProcessBtn.Location = new Point(159, 533);
             ProcessBtn.Name = "ProcessBtn";
             ProcessBtn.Size = new Size(131, 40);
             ProcessBtn.TabIndex = 3;
@@ -115,10 +98,50 @@
             // 
             // FileProgressBar
             // 
-            FileProgressBar.Location = new Point(725, 47);
+            FileProgressBar.Location = new Point(13, 53);
             FileProgressBar.Name = "FileProgressBar";
             FileProgressBar.Size = new Size(278, 40);
             FileProgressBar.TabIndex = 4;
+            // 
+            // PreviewPicture
+            // 
+            PreviewPicture.Location = new Point(11, 99);
+            PreviewPicture.Name = "PreviewPicture";
+            PreviewPicture.Size = new Size(279, 342);
+            PreviewPicture.TabIndex = 5;
+            PreviewPicture.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(FileCountBox);
+            panel1.Controls.Add(FIleCountLbl);
+            panel1.Controls.Add(ProcessBtn);
+            panel1.Controls.Add(PreviewPicture);
+            panel1.Controls.Add(FileProgressBar);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(713, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(302, 585);
+            panel1.TabIndex = 6;
+            // 
+            // FileCountBox
+            // 
+            FileCountBox.Location = new Point(184, 12);
+            FileCountBox.Name = "FileCountBox";
+            FileCountBox.Size = new Size(107, 35);
+            FileCountBox.TabIndex = 1;
+            FileCountBox.Text = "1000";
+            FileCountBox.TextAlign = HorizontalAlignment.Right;
+            FileCountBox.KeyPress += FileCountBox_KeyPress;
+            // 
+            // FIleCountLbl
+            // 
+            FIleCountLbl.AutoSize = true;
+            FIleCountLbl.Location = new Point(12, 9);
+            FIleCountLbl.Name = "FIleCountLbl";
+            FIleCountLbl.Size = new Size(165, 30);
+            FIleCountLbl.TabIndex = 2;
+            FIleCountLbl.Text = "Number of Files:";
             // 
             // MainForm
             // 
@@ -126,27 +149,28 @@
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1015, 585);
-            Controls.Add(FileProgressBar);
-            Controls.Add(ProcessBtn);
-            Controls.Add(FIleCountLbl);
-            Controls.Add(FileCountBox);
+            Controls.Add(panel1);
             Controls.Add(FileListGrid);
             Name = "MainForm";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)FileListGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PreviewPicture).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DataGridView FileListGrid;
-        private TextBox FileCountBox;
-        private Label FIleCountLbl;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private Button ProcessBtn;
         private ProgressBar FileProgressBar;
+        private PictureBox PreviewPicture;
+        private Panel panel1;
+        private TextBox FileCountBox;
+        private Label FIleCountLbl;
     }
 }
