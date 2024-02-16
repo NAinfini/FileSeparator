@@ -83,7 +83,7 @@ namespace FileSeparator
             int leftFileCount = files.Count;
             while (leftFileCount - Globals.fileCount >= 0)
             {
-                var newDir = Directory.CreateDirectory(Path.Combine(files[0].DirectoryName, $"Range {Globals.processedFiles}"));
+                var newDir = Directory.CreateDirectory(Path.Combine(files[0].DirectoryName, $"Range {Globals.processedFiles} - {Globals.processedFiles + Globals.fileCount}"));
                 for (int i = 0; i < Globals.fileCount; i++)
                 {
                     Globals.processedFiles++;
@@ -96,6 +96,5 @@ namespace FileSeparator
                 leftFileCount = leftFileCount - Globals.fileCount;
             }
         }
-
     }
 }
